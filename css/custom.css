@@ -1,0 +1,69 @@
+
+
+/* empieza el slayer */
+
+#sect2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+ #sect2 h1 {
+    text-align: center;
+    padding-bottom: 1%;
+    font-family: titulo;
+    color: #f00;
+    transform: scale(3.3);
+    text-shadow: 2px 3px 5px #000;
+    z-index: -1;
+} 
+#slay{
+    
+}
+   
+.carrousel-content{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+    
+}
+
+ #sect2 .carrousel img {
+    width: 60%;
+  
+    object-fit: contain;
+} 
+
+ .prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 40px;
+    margin-top: -50px;
+    color: #f00;
+    font-weight: bold;
+    font-size: 4em;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+} 
+
+/* Position the "next button" to the right */
+ .prev {
+    left: 0;
+} 
+
+ .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+} 
+
+/* termina el slayer */
+

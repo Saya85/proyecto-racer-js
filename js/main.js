@@ -22,7 +22,7 @@ function showSlides(n) {
       slides[i].style.display = "none";
       //slides[i].style.opacity = "0";
   }
-  slides[slideIndex-1].style.display = "block";
+  slides[slideIndex-1].style.display = "flex";
   //slides[slideIndex-1].style.opacity = "1";
  
 }

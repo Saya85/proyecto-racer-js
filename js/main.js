@@ -55,26 +55,34 @@ let elegirCoche = () =>{
  console.log(cocheRival);
  document.getElementById("sect2").style.display = "none";
  document.getElementById("sect3").style.display = "flex";
- document.getElementById("cocheJugador").html('<img src="img/croquetas'+slideIndex+'.jpeg"></img>');
- document.getElementById("cocheRival").html('<img src="img/croquetas'+rivalId+'.jpeg"></img>');
+ document.getElementById("cocheJugador").innerHTML = '<img src="img/croquetas'+slideIndex+'.jpeg"></img>';
+ document.getElementById("cocheRival").innerHTML = '<img src="img/croquetas'+rivalId+'.jpeg"></img>';
 }
 
 
 //boton carrera
-let intervalId;
-let count = (number) => {
+let correrCoches;
+let accelerarIA;
+let number = 3;
+let count = () => {
+  console.log(number);
     if (number > 0) {
         document.getElementById("count").textContent = number;
         number--;
-        setTimeout(count(number), 700);
+        setTimeout(count, 1000);
     }
     else {
-      document.getElementById("count").textContent = 0;
+      document.getElementById("count").textContent = "GO";
+      document.getElementById("count").style.color = "green";
       document.getElementById("correr").disabled = false;
-      intervalId = window.setInterval(function(){
+      correrCoches = window.setInterval(function(){
         cocheActual.correr();
         cocheRival.correr();
       }, 1000);
+
+      accelerarIA = window.setInterval(function(){
+        cocheRival.acelerar();
+      }, 4git00);
       
     }
 }
@@ -83,7 +91,7 @@ let carrera = () => {
   document.getElementById("sect3").style.display = "none";
   document.getElementById("sect4").style.display = "flex";
 
-  count(3);
+  count();
 
   
 }
@@ -102,28 +110,32 @@ class vehiculo {
     this.jugador = jugador;
     this.velocidad = 0;
     this.desaceleracion = 10;
-    this.vueltas = 0;
+    this.vueltas = 1;
     this.vueltasMax = 3;
-    this.metrosVuelta = 10000;
-    this.metrosTramos = 100;
+    this.metrosVuelta = 5000;
+    this.metrosTramos = 300;
     this.tipoTramo = 'recta';
     this.tramo = 0;
     this.metros = 0;
-    this.velocidadmax = velocidadmax;
-    this.aceleracion = aceleracion;  
+    this.velocidadmax = parseInt(velocidadmax);
+    this.aceleracion = parseInt(aceleracion);  
     let progreso = document.getElementById("progreso"+this.jugador);
-    progreso.getElementsByClassName("metros").textContent = 0 + ' metros  /  ' + this.metrosVuelta + ' metros' ;
-    progreso.getElementsByClassName("barra").style.width = 0/this.metrosVuelta*100 + '%';
+    progreso.getElementsByClassName("metros")[0].textContent = 0 + ' metros  /  ' + this.metrosVuelta + ' metros' ;
+    progreso.getElementsByClassName("barra")[0].style.width = 0/this.metrosVuelta*100 + '%';
     document.getElementById("velocidad"+this.jugador).textContent = 0 + ' m/s';
-    document.getElementById("vueltas"+this.jugador).textContent = 0 + '/' + this.vueltasMax; 
+    document.getElementById("vueltas"+this.jugador).textContent = 1 + '/' + this.vueltasMax; 
   }
-  accelerar (){
-    if(this.velocidad <= this.velocidadmax){
+  acelerar (){
+    console.log('velocidad: ' + this.velocidad);
+    if(this.velocidad < this.velocidadmax){
         this.velocidad = this.velocidad + this.aceleracion;
     }
   }
   correr () {
     this.velocidad = this.velocidad - this.desaceleracion;
+    if(this.velocidad < 0) {
+      this.velocidad = 0;
+    }
     this.metros = this.metros + this.velocidad;
     if (this.metros >= this.metrosVuelta) {
       this.meta();
@@ -141,8 +153,8 @@ class vehiculo {
       }
     }
     let progreso = document.getElementById("progreso"+this.jugador);
-    progreso.getElementsByClassName("metros").textContent = this.metros + ' metros  /  ' + this.metrosVuelta + ' metros' ;
-    progreso.getElementsByClassName("barra").style.width = this.metros/this.metrosVuelta*100 + '%';
+    progreso.getElementsByClassName("metros")[0].textContent = this.metros + ' metros  /  ' + this.metrosVuelta + ' metros' ;
+    progreso.getElementsByClassName("barra")[0].style.width = this.metros/this.metrosVuelta*100 + '%';
     document.getElementById("velocidad"+this.jugador).textContent = this.velocidad  + ' m/s';
   
   }
@@ -155,14 +167,19 @@ class vehiculo {
     this.tipoTramo = 'recta';
   }
   meta () {
+    console.log( 'vueltas: ' +this.vueltas);
+    console.log('vueltasMax: ' +this.vueltasMax);
+    console.log('metros: ' +this.metros);
+    console.log('metrosVuelta: ' +this.metrosVuelta);
     this.vueltas = this.vueltas + 1;
     this.metros = this.metros - this.metrosVuelta;
     this.tramo = 0;
-    if (this.vueltas = this.vueltasMax) {
+    if (this.vueltas > this.vueltasMax) {
       document.getElementById("sect4").style.display = "none";
       document.getElementById("sect5").style.display = "flex";
-      document.getElementById("ganador").textContent = ganador; 
-      clearInterval(intervalId);
+      document.getElementById("ganador").textContent = this.jugador; 
+      clearInterval(correrCoches);
+      clearInterval(accelerarIA);
     }
     document.getElementById("vueltas"+this.jugador).textContent = this.vueltas + '/' + this.vueltasMax;
   }

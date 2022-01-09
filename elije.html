@@ -26,55 +26,64 @@
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             </div>
                 <div class="carrousel-content">
-                    <div class="mySlides">
+                    <div class="mySlides" id="coche1">
                         <img src="img/croquetas.jpeg">
                         <div class="stats">
-                            <h2>
-                                mustang
-                            </h2>
+                            <h2 class="nombreCoche">mustang</h2>
                             <p>
-                            coche 1 
+                            <span class="velmax">30</span>
+                            <span class="aceleracion">10</span>
                             </p> 
                         </div>
                     </div>
-                    <div class="mySlides">
+                    <div class="mySlides" id="coche2">
                         <img src="img/croquetas.jpeg">
                         <div class="stats">
+                            <h2 class="nombreCoche">porche</h2>
                             <p>
-                            coche  2
+                            <span class="velmax">30</span>
+                            <span class="aceleracion">10</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche3">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">ferrari</h2>
+                            <p>
+                            <span class="velmax">30</span>
+                            <span class="aceleracion">10</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche4">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">f1</h2>
+                            <p>
+                            <span class="velmax">30</span>
+                            <span class="aceleracion">10</span>
                             </p> 
                         </div>
                     </div>
-                    <div class="mySlides">
+                    <div class="mySlides" id="coche5">
                         <img src="img/croquetas.jpeg">
                         <div class="stats">
+                            <h2 class="nombreCoche">citroen</h2>
                             <p>
-                            coche 3 
-                            </p> 
+                            <span class="velmax">30</span>
+                            <span class="aceleracion">10</span>
+                            </p>
                         </div>
                     </div>
-                    <div class="mySlides">
+                    <div class="mySlides" id="coche6">
                         <img src="img/croquetas.jpeg">
                         <div class="stats">
+                            <h2 class="nombreCoche">ford</h2>
                             <p>
-                            coche 4 
-                            </p> 
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <img src="img/croquetas.jpeg">
-                        <div class="stats">
-                            <p>
-                            coche 5 
-                            </p> 
-                        </div>
-                    </div>
-                    <div class="mySlides">
-                        <img src="img/croquetas.jpeg">
-                        <div class="stats">
-                            <p>
-                            coche 6 
-                            </p> 
+                            <span class="velmax">30</span>
+                            <span class="aceleracion">10</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +92,7 @@
             </div>
         </div>               
         <div>
-            <button>Listo</button> 
+            <button onclick="elegirCoche()">Listo</button> 
         </div>
    </section>
    <script src="js/main.js"></script>

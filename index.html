@@ -4,36 +4,181 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://kit.fontawesome.com/4b7e426eea.js" crossorigin="anonymous"></script>
     <!-- empieza el el contenido de css custom -->
 
     <link rel="stylesheet" href="css/custom.css">
 
     <!-- termina el el contenido de css custom -->
 
-    <title>Document</title>
+    <title>eleccion de coches</title>
 </head>
 <body>
-   <section id="home">
+
+    <!-- empieza seccion 1 -->
+
+    <section id="sect1">
+            <div>
+                <h1>PROYECT RACER</h1>
+            </div>
+            <div id="fondo">
+            </div>
+            <div>
+                <button onclick="start()">start</button>
+            </div>
+    </section>
+
+    <!-- empieza seccion 2 -->
+
+    <section id="sect2" style="display: none;">
        <div>
             <h1>
-                bienvenido a
+                selecciona tu veiculo
             </h1>
-            <h2>
-                titulo del juego
-            </h2> 
        </div>
+        <!--  carrusel -->
+        <div id="carrousel" class="carrousel">
+            <div class="boton">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            </div>
+                <div class="carrousel-content">
+                    <div class="mySlides" id="coche1">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">mustang</h2>
+                            <p>
+                            <span class="velmax">200 velocidad maxima</span>
+                            <br>
+                            <br>
+                            <span class="aceleracion">30 aceleracion</span>
+                            </p> 
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche2">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">porche</h2>
+                            <p>
+                            <span class="velmax">240 velocidad maxima</span>
+                            <br>
+                            <br>
+                            <span class="aceleracion">20 aceleracion</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche3">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">ferrari</h2>
+                            <p>
+                            <span class="velmax">260 velocidad maxima</span>
+                            <br>
+                            <br>
+                            <span class="aceleracion">30 aceleracion</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche4">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">Nissan</h2>
+                            <p>
+                            <span class="velmax">220 velocicad maxima</span>
+                            <br> 
+                            <br>
+                            <span class="aceleracion">35 aceleracion</span>
+                            </p> 
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche5">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">citroen</h2>
+                            <p>
+                            <span class="velmax">210 velocidad maxima</span>
+                            <br>
+                            <br>
+                            <span class="aceleracion">40 aceleracion</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mySlides" id="coche6">
+                        <img src="img/croquetas.jpeg">
+                        <div class="stats">
+                            <h2 class="nombreCoche">ford Gt</h2>
+                            <p>
+                            <span class="velmax">300 velocidad maxima</span>
+                            <br>
+                            <br>
+                            <span class="aceleracion">20 aceleracion</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <div class="boton">
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>               
         <div>
-            <img src="" alt="">
-           <p>
-            hablamos un poco del juego
-            </p> 
+            <button onclick="elegirCoche()">Listo</button> 
         </div>
-        <div>
-            <button>Empezar</button>
-        </div>
-        
    </section>
+
+  <!-- empieza seccion 3 -->
+
+   <section id="sect3"  style="display: none;">
+        <div class="carretera">
+            <div id="posicion">
+                <div class="cocheJugador"></div>
+                <div class="cocheRival"></div>
+            </div>
+            <div>
+                <button onclick="carrera()">carrera</button> 
+            </div>  
+        </div>   
+    </section>
+    <!-- empieza seccion 4 -->
+
+    <section id="sect4"  style="display: none;">
+        <div class="carretera">
+            <div id="posicion">
+                <div class="columna">
+                    <div id="progresoPlayer">
+                        <span class="metros"></span> 
+                        <div class="cajapro">
+                            <div class="barra">
+                            <i class="fas fa-car-side"></i></div>
+                        </div>
+                   </div>
+                    <div id="vueltasPlayer"></div>
+                    <div class="cocheJugador"></div>
+                    <div id="velocidadPlayer"></div>
+                </div>   
+                <div id="count"></div>
+                <div class="columna">
+                    <div id="progresoIA">
+                        <span class="metros"></span> 
+                        <div class="cajapro">
+                        <div class="barra">
+                            <i class="fas fa-car-side"></i></div>
+                        </div>
+                    </div>
+                    <div id="vueltasIA"></div>
+                    <div class="cocheRival"></div>
+                    <div id="velocidadIA"></div>
+                </div>
+            </div>
+        <div>
+             <button id="correr" disabled onclick="cocheActual.acelerar()">gas</button>
+        </div>
+        </div>
+    </section>
+
+<section id="sect5" style="display: none;">
+    <div id="ganador"></div>
+    <button onclick="restart()">restart</button>
+
+</section>
    <script src="js/main.js"></script>
 </body>
 </html>

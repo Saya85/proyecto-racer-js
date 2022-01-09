@@ -21,8 +21,7 @@
             <div>
                 <h1>PROYECT RACER</h1>
             </div>
-            <div id="fondo">
-            </div>
+            <div id="fondo"></div>
             <div>
                 <button onclick="start()">start</button>
             </div>
@@ -168,17 +167,23 @@
                     <div id="velocidadIA"></div>
                 </div>
             </div>
-        <div>
-             <button id="correr" disabled onclick="cocheActual.acelerar()">gas</button>
-        </div>
+            <div>
+                <button id="correr" disabled onclick="cocheActual.acelerar()">gas</button>
+            </div>
         </div>
     </section>
 
-<section id="sect5" style="display: none;">
-    <div id="ganador"></div>
-    <button onclick="restart()">restart</button>
+<!-- empieza seccion 5 -->
 
-</section>
+    <section id="sect5" style="display: none;">
+        <div>
+            <h1>¡¡¡Enhorabuena <span id="ganador"></span> eres el mejor !!!</h1>
+        </div>
+            <img src="" alt="">
+        <div>
+            <button onclick="restart()">restart</button>
+        </div>
+    </section>
    <script src="js/main.js"></script>
 </body>
 </html>

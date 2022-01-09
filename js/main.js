@@ -82,7 +82,7 @@ let count = () => {
 
       accelerarIA = window.setInterval(function(){
         cocheRival.acelerar();
-      }, 4git00);
+      }, 400);
       
     }
 }

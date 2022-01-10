@@ -81,7 +81,9 @@ body{
 }
 
  #sect2 .carrousel img {
-    width: 100%;
+    width: 500px;
+    height: 300px;
+    
 } 
 
 /* BOTONES CARRUSEL */
@@ -227,7 +229,9 @@ body{
     color: #f00;
     text-shadow: 2px 3px 5px #000;  
 }  
-
+#sect5 img{
+    width: 30em;
+}
 
 
 /*  BUTTONS JUEGO */
@@ -247,3 +251,12 @@ button{
     text-shadow: -2px -2px 1px blue, 2px 2px 1px blue, -2px 2px 1px blue, 2px -2px 1px blue;
 }
 
+/* posicion cohes carrera */
+
+.cocheJugador{
+    transform: rotate(180deg);
+}
+
+.cocheRival{
+    transform: rotate(90deg);
+}

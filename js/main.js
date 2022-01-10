@@ -40,7 +40,7 @@ let seleccionCocheRival = () =>{
    let aceleracion = slide.getElementsByClassName("aceleracion")[0].textContent;
    let nombre = slide.getElementsByClassName("nombreCoche")[0].textContent;
   cocheRival = new vehiculo(nombre, 'IA', aceleracion, velmax);
-  return slideId;
+ 
 }
 // seleccion vehiculo
 let cocheActual;
@@ -50,18 +50,9 @@ let elegirCoche = () =>{
   let aceleracion = slide.getElementsByClassName("aceleracion")[0].textContent;
   let nombre = slide.getElementsByClassName("nombreCoche")[0].textContent;
  cocheActual = new vehiculo(nombre, 'Player', aceleracion, velmax);
- let rivalId = seleccionCocheRival()
+ seleccionCocheRival()
  document.getElementById("sect2").style.display = "none";
  document.getElementById("sect3").style.display = "flex";
- let cocheJugador = document.getElementsByClassName("cocheJugador");
- for(let i = 0; i < cocheJugador.length; i++){
-  cocheJugador[i].innerHTML = '<img src="img/coche'+slideIndex+'.jpeg"></img>';
- }
-
-let cocheEnemigo = document.getElementsByClassName("cocheRival");
-for(let i = 0; i < cocheEnemigo.length; i++){
-  cocheEnemigo[i].innerHTML = '<img src="img/coche'+rivalId+'.jpeg"></img>';
-}
 
 }
 
